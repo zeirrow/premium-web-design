@@ -96,13 +96,13 @@ export function FAQSection() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://wa.me/1234567890" 
+                href="https://wa.me/+234*033951020" 
                 className="inline-flex items-center justify-center gap-2 bg-gradient-accent text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300"
               >
                 <span>💬</span> WhatsApp Me
               </a>
               <a 
-                href="https://instagram.com/yourhandle" 
+                href="https://instagram.com/zeirrow.dev" 
                 className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300"
               >
                 <span>📸</span> Instagram DM

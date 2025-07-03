@@ -66,7 +66,7 @@ export function PortfolioSection() {
                 style={{animationDelay: `${index * 0.2}s`}}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white font-bold text-xl shrink-0`}>
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white font-bold text-xl md:text-4xl shrink-0`}>
                     {index + 1}
                   </div>
                   

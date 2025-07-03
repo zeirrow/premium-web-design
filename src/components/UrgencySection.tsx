@@ -6,12 +6,12 @@ export function UrgencySection() {
     days: 2,
     hours: 14,
     minutes: 32,
-    seconds: 45
+    seconds: 45,
   });
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev.seconds > 0) {
           return { ...prev, seconds: prev.seconds - 1 };
         } else if (prev.minutes > 0) {
@@ -19,7 +19,13 @@ export function UrgencySection() {
         } else if (prev.hours > 0) {
           return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
         } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59,
+          };
         }
         return prev;
       });
@@ -44,12 +50,18 @@ export function UrgencySection() {
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-black text-white mb-6">
-            Only Taking <span className="text-neon-orange animate-neon-flicker">3 Clients</span> This Week
+            Only Taking{" "}
+            <span className="text-neon-orange animate-neon-flicker">
+              3 Clients
+            </span>{" "}
+            This Week
           </h2>
-          
+
           <p className="text-xl lg:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Quality over quantity. I focus on delivering <span className="font-bold text-neon-orange">results</span>, 
-            not churning out mediocre websites. When these spots are gone, you wait until next week.
+            Quality over quantity. I focus on delivering{" "}
+            <span className="font-bold text-neon-orange">results</span>, not
+            churning out mediocre websites. When these spots are gone, you wait
+            until next week.
           </p>
 
           {/* Countdown timer */}
@@ -57,17 +69,21 @@ export function UrgencySection() {
             <h3 className="text-2xl font-bold text-white mb-6">
               ⏰ This offer expires in:
             </h3>
-            
+
             <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto">
               {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hours', value: timeLeft.hours },
-                { label: 'Min', value: timeLeft.minutes },
-                { label: 'Sec', value: timeLeft.seconds }
+                { label: "Days", value: timeLeft.days },
+                { label: "Hours", value: timeLeft.hours },
+                { label: "Min", value: timeLeft.minutes },
+                { label: "Sec", value: timeLeft.seconds },
               ].map((item, index) => (
-                <div key={item.label} className="bg-gradient-accent rounded-xl p-4 animate-bounce-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <div
+                  key={item.label}
+                  className="bg-gradient-accent rounded-xl p-4 animate-bounce-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="text-3xl lg:text-4xl font-black text-white">
-                    {item.value.toString().padStart(2, '0')}
+                    {item.value.toString().padStart(2, "0")}
                   </div>
                   <div className="text-sm text-white/80 font-semibold">
                     {item.label}
@@ -80,14 +96,20 @@ export function UrgencySection() {
           {/* Spots taken */}
           <div className="mb-12 animate-slide-up-fade">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
-              <h4 className="text-lg font-bold text-white mb-4">Spots Taken This Week:</h4>
-              
+              <h4 className="text-lg font-bold text-white mb-4">
+                Spots Taken This Week:
+              </h4>
+
               <div className="flex justify-center gap-2 mb-4">
                 {[1, 2, 3].map((spot) => (
                   <div key={spot} className="relative">
-                    <div className={`w-16 h-16 rounded-full border-2 flex items-center justify-center font-bold ${
-                      spot <= 1 ? 'bg-red-500 border-red-400 text-white' : 'bg-white/20 border-white/40 text-white'
-                    }`}>
+                    <div
+                      className={`w-16 h-16 rounded-full border-2 flex items-center justify-center font-bold ${
+                        spot <= 1
+                          ? "bg-red-500 border-red-400 text-white"
+                          : "bg-white/20 border-white/40 text-white"
+                      }`}
+                    >
                       {spot}
                     </div>
                     {spot <= 1 && (
@@ -98,21 +120,30 @@ export function UrgencySection() {
                   </div>
                 ))}
               </div>
-              
+
               <p className="text-white/80 text-sm">
-                <span className="text-neon-orange font-bold">2 spots remaining</span> for this week
+                <span className="text-neon-orange font-bold">
+                  2 spots remaining
+                </span>{" "}
+                for this week
               </p>
             </div>
           </div>
 
           {/* CTA */}
           <div className="space-y-6">
-            <Button variant="cta" size="xl" className="text-xl px-12 py-6 animate-glow-pulse">
+            <Button
+              variant="cta"
+              size="xl"
+              className="text-xl px-12 py-6 animate-glow-pulse"
+              onClick={() => (window.location.href = "#contact")}
+            >
               Claim Your Spot Now
             </Button>
-            
+
             <p className="text-white/80 text-sm max-w-md mx-auto">
-              ⚡ <strong>Fast action bonus:</strong> Book in the next 2 hours and get free rush delivery (save $500)
+              ⚡ <strong>Fast action bonus:</strong> Book in the next 2 hours
+              and get free rush delivery (save $500)
             </p>
           </div>
 

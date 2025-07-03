@@ -74,10 +74,11 @@ export function ContactForm() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-foreground mb-2">
+                  <label htmlFor="projectType" className="block text-sm font-semibold text-foreground mb-2">
                     Project Type *
                   </label>
                   <select
+                    id="projectType"
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
@@ -95,10 +96,11 @@ export function ContactForm() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">
+                    <label htmlFor="timeline" className="block text-sm font-semibold text-foreground mb-2">
                       Timeline
                     </label>
                     <select
+                      id="timeline"
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleChange}
@@ -113,10 +115,11 @@ export function ContactForm() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">
+                    <label htmlFor="budget" className="block text-sm font-semibold text-foreground mb-2">
                       Budget Range
                     </label>
                     <select
+                      id="budget"
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
@@ -159,7 +162,7 @@ export function ContactForm() {
                 
                 <div className="space-y-4 mb-8">
                   <a 
-                    href="https://wa.me/1234567890" 
+                    href="https://wa.me/+2349033951020" 
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
@@ -172,7 +175,7 @@ export function ContactForm() {
                   </a>
                   
                   <a 
-                    href="https://instagram.com/yourhandle" 
+                    href="https://instagram.com/zeirrow.dev" 
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
@@ -180,7 +183,7 @@ export function ContactForm() {
                     </div>
                     <div>
                       <div className="font-bold">Instagram DM</div>
-                      <div className="text-white/80 text-sm">@yourhandle</div>
+                      <div className="text-white/80 text-sm">@zeirrow.dev</div>
                     </div>
                   </a>
                 </div>

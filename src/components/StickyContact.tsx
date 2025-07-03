@@ -36,13 +36,13 @@ export function StickyContact() {
             
             <div className="flex gap-2">
               <a 
-                href="https://wa.me/1234567890" 
+                href="https://wa.me/+2349033951020" 
                 className="flex-1 bg-white/20 hover:bg-white/30 text-white text-xs font-semibold py-2 px-3 rounded-lg text-center transition-all duration-300"
               >
                 WhatsApp
               </a>
               <a 
-                href="https://instagram.com/yourhandle" 
+                href="https://instagram.com/zeirrow.dev" 
                 className="flex-1 bg-white/20 hover:bg-white/30 text-white text-xs font-semibold py-2 px-3 rounded-lg text-center transition-all duration-300"
               >
                 DM
