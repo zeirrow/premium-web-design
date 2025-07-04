@@ -148,18 +148,6 @@ export function UrgencySection() {
           </div>
 
           {/* Social proof ticker */}
-          <div className="mt-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 animate-slide-up-fade">
-            <div className="flex items-center justify-center gap-6 text-sm text-white/80">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                <span>Sarah just booked (2 min ago)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                <span>Mike viewing pricing (30 sec ago)</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

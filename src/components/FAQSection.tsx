@@ -1,3 +1,4 @@
+import { Instagram, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 export function FAQSection() {
@@ -99,13 +100,13 @@ export function FAQSection() {
                 href="https://wa.me/+234*033951020" 
                 className="inline-flex items-center justify-center gap-2 bg-gradient-accent text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300"
               >
-                <span>💬</span> WhatsApp Me
+                <span><MessageCircle /></span> WhatsApp Me
               </a>
               <a 
                 href="https://instagram.com/zeirrow.dev" 
                 className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-300"
               >
-                <span>📸</span> Instagram DM
+                <span><Instagram /></span> Instagram DM
               </a>
             </div>
           </div>

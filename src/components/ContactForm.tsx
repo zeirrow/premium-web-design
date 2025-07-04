@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Instagram, MessageCircle, TimerIcon } from "lucide-react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -126,9 +127,9 @@ export function ContactForm() {
                       className="w-full bg-input border border-border rounded-xl px-4 py-3 text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
                     >
                       <option value="">Select budget</option>
-                      <option value="3k-5k">$3k - $5k</option>
-                      <option value="5k-10k">$5k - $10k</option>
-                      <option value="10k-plus">$10k+</option>
+                      <option value="150-400">$150 - $400</option>
+                      <option value="400-800">$400 - $800</option>
+                      <option value="1k-plus">$1k+</option>
                       <option value="discuss">Let's discuss</option>
                     </select>
                   </div>
@@ -166,7 +167,7 @@ export function ContactForm() {
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                      💬
+                      <MessageCircle />
                     </div>
                     <div>
                       <div className="font-bold">WhatsApp</div>
@@ -179,7 +180,7 @@ export function ContactForm() {
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                      📸
+                      <Instagram />
                     </div>
                     <div>
                       <div className="font-bold">Instagram DM</div>
@@ -189,7 +190,7 @@ export function ContactForm() {
                 </div>
 
                 <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-sm text-white/80 mb-2">🕐 Response time</div>
+                  <div className="text-sm text-white/80 mb-2"><TimerIcon /> Response time</div>
                   <div className="font-bold">Within 2 hours (Mon-Fri)</div>
                   <div className="font-bold">Within 4 hours (Weekends)</div>
                 </div>

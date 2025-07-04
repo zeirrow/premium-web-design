@@ -8,6 +8,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { StickyContact } from "@/components/StickyContact";
 import Header from "@/components/Header";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
+import NotificationCard from "@/components/NotificationCard";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
         <PortfolioSection />
         <TestimonialSection />
         <UrgencySection />
+        <NotificationCard />
         <FAQSection />
         <div id="contact">
           <ContactForm />
@@ -60,18 +62,21 @@ const Index = () => {
                 </h4>
                 <div className="flex gap-4 justify-center md:justify-start">
                   <a
+                    aria-label="whatsapp"
                     href="https://wa.me/1234567890"
                     className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform duration-300"
                   >
-                  <MessageCircle />
+                    <MessageCircle />
                   </a>
                   <a
+                    aria-label="instagram"
                     href="https://instagram.com/yourhandle"
                     className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center text-white hover:scale-110 transition-transform duration-300"
                   >
                     <Instagram />
                   </a>
                   <a
+                    aria-label="email"
                     href="mailto:hello@yoursite.com"
                     className="w-10 h-10 bg-electric rounded-lg flex items-center justify-center text-black hover:scale-110 transition-transform duration-300"
                   >

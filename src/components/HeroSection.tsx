@@ -94,7 +94,7 @@ export function HeroSection() {
             </div>
 
             <div
-              className="absolute -bottom-4 -left-4 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold animate-bounce-in"
+              className="absolute -bottom-0 -left-4 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold animate-bounce-in"
               style={{ animationDelay: "1.2s" }}
             >
               🔥 SEO Ready
