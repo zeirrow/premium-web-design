@@ -8,8 +8,7 @@ const Header = () => {
   const links = [
     { name: "Home", href: "/" },
     { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
+    { name: "FAQs", href: "#faqs" },
   ];
 
   const toggleMobileMenu = () => {
@@ -24,10 +23,11 @@ const Header = () => {
           <div className="flex items-center">
             <a
               href="/"
-              className="text-xl font-bold text-primary hover:text-primary/90 transition-colors"
-              aria-label="Premium Web Design - Home"
+              className="text-xl font-bold text-grey-50 hover:text-grey-50/90 transition-colors"
+              aria-label="Premium Design - Home"
             >
-              Premium Web Design
+              Premium
+              <span className="text-primary hover:text-primary/90">Design</span>
             </a>
           </div>
 
@@ -46,16 +46,16 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-            <Button
-              variant="cta"
-              size="sm"
-              className="ml-4 hidden lg:block"
-              onClick={() => {
-                window.location.href = "#contact";
-              }}
-            >
-              Contact Me
-            </Button>
+          <Button
+            variant="cta"
+            size="sm"
+            className="ml-4 hidden lg:block"
+            onClick={() => {
+              window.location.href = "#contact";
+            }}
+          >
+            Contact Me
+          </Button>
 
           {/* Mobile Navigation */}
           <div className="flex lg:hidden items-center gap-4">

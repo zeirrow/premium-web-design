@@ -92,12 +92,12 @@ export function PortfolioSection() {
                 
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-black text-electric">10+</div>
-                    <div className="text-sm text-muted-foreground">Projects Launched</div>
+                    <div className="text-2xl font-black text-electric">5★</div>
+                    <div className="text-sm text-muted-foreground">Rated Service</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-neon-orange">3</div>
-                    <div className="text-sm text-muted-foreground">Day Average</div>
+                    <div className="text-2xl font-black text-neon-orange">24/7</div>
+                    <div className="text-sm text-muted-foreground">Support</div>
                   </div>
                   <div>
                     <div className="text-2xl font-black text-neon-pink">100%</div>

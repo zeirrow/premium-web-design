@@ -40,7 +40,7 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="faqs" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-slide-up-fade">
           <h2 className="text-4xl lg:text-6xl font-black mb-6">

@@ -47,7 +47,7 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-card relative overflow-hidden">
+    <section id="services" className="py-20 bg-gradient-card relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-primary blur-3xl"></div>

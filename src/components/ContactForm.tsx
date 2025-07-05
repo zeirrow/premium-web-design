@@ -1,27 +1,62 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Instagram, MessageCircle, TimerIcon } from "lucide-react";
+import { toast } from "sonner";
+import { BookingWidget } from "./BookingWidget";
 
+const initialFormData = {
+    name: "",
+    email: "",
+    projectType: "",
+    timeline: "",
+    budget: "",
+    message: "",
+  }
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: '',
-    timeline: '',
-    budget: '',
-    message: ''
-  });
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        "https://resend-server.onrender.com/api/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast("✅ Message sent! I’ll get back to you ASAP.");
+        setFormData(initialFormData)
+      } else {
+        toast("❌ Something went wrong. Try again later.");
+        console.error(data.error);
+      }
+    } catch (err) {
+      toast("❌ Couldn’t send. Please check your internet or try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -31,7 +66,10 @@ export function ContactForm() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-slide-up-fade">
             <h2 className="text-4xl lg:text-6xl font-black mb-6">
-              Let's Build Your <span className="bg-gradient-accent bg-clip-text text-transparent">Empire</span>
+              Let's Build Your{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Empire
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Tell me about your vision. I'll tell you how to make it convert.
@@ -57,7 +95,7 @@ export function ContactForm() {
                       placeholder="Your name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-2">
                       Email *
@@ -75,7 +113,10 @@ export function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-foreground mb-2">
+                  <label
+                    htmlFor="projectType"
+                    className="block text-sm font-semibold text-foreground mb-2"
+                  >
                     Project Type *
                   </label>
                   <select
@@ -97,7 +138,10 @@ export function ContactForm() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-semibold text-foreground mb-2">
+                    <label
+                      htmlFor="timeline"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
                       Timeline
                     </label>
                     <select
@@ -114,9 +158,12 @@ export function ContactForm() {
                       <option value="flexible">Flexible</option>
                     </select>
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="budget" className="block text-sm font-semibold text-foreground mb-2">
+                    <label
+                      htmlFor="budget"
+                      className="block text-sm font-semibold text-foreground mb-2"
+                    >
                       Budget Range
                     </label>
                     <select
@@ -149,21 +196,32 @@ export function ContactForm() {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" size="xl" className="w-full">
+                <Button
+                  disabled={loading}
+                  type="submit"
+                  variant="hero"
+                  size="xl"
+                  className="w-full"
+                >
                   Send My Project Details
                 </Button>
               </form>
             </div>
 
             {/* Contact info & calendar */}
-            <div className="space-y-8 animate-slide-up-fade" style={{animationDelay: '0.2s'}}>
+            <div
+              className="space-y-8 animate-slide-up-fade"
+              style={{ animationDelay: "0.2s" }}
+            >
               {/* Quick contact */}
               <div className="bg-gradient-primary rounded-3xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Prefer to talk directly?</h3>
-                
+                <h3 className="text-2xl font-bold mb-6">
+                  Prefer to talk directly?
+                </h3>
+
                 <div className="space-y-4 mb-8">
-                  <a 
-                    href="https://wa.me/+2349033951020" 
+                  <a
+                    href="https://wa.me/+2349033951020"
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
@@ -171,12 +229,14 @@ export function ContactForm() {
                     </div>
                     <div>
                       <div className="font-bold">WhatsApp</div>
-                      <div className="text-white/80 text-sm">Usually respond within 1 hour</div>
+                      <div className="text-white/80 text-sm">
+                        Usually respond within 1 hour
+                      </div>
                     </div>
                   </a>
-                  
-                  <a 
-                    href="https://instagram.com/zeirrow.dev" 
+
+                  <a
+                    href="https://instagram.com/zeirrow.dev"
                     className="flex items-center gap-4 bg-white/10 rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
@@ -190,29 +250,33 @@ export function ContactForm() {
                 </div>
 
                 <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-sm text-white/80 mb-2"><TimerIcon /> Response time</div>
+                  <div className="text-sm text-white/80 mb-2">
+                    <TimerIcon /> Response time
+                  </div>
                   <div className="font-bold">Within 2 hours (Mon-Fri)</div>
                   <div className="font-bold">Within 4 hours (Weekends)</div>
                 </div>
               </div>
 
               {/* Calendar booking */}
-              <div className="bg-card border border-border rounded-3xl p-8 shadow-card">
+              <BookingWidget />
+              {/* <div className="bg-card border border-border rounded-3xl p-8 shadow-card">
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   Book a Strategy Call
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  30-minute call to discuss your project, timeline, and goals. No sales pitch, just strategy.
+                  30-minute call to discuss your project, timeline, and goals.
+                  No sales pitch, just strategy.
                 </p>
-                
+
                 <Button variant="cta" size="lg" className="w-full">
                   Schedule Free Call
                 </Button>
-                
+
                 <p className="text-sm text-muted-foreground mt-4 text-center">
                   Available slots this week: 3
                 </p>
-              </div>
+              </div> */}
 
               {/* Guarantee */}
               <div className="bg-gradient-card border border-border rounded-3xl p-6">
@@ -222,7 +286,8 @@ export function ContactForm() {
                     100% Satisfaction Guarantee
                   </h4>
                   <p className="text-sm text-muted-foreground">
-                    If you're not completely satisfied with your website, I'll keep working until you are. No questions asked.
+                    If you're not completely satisfied with your website, I'll
+                    keep working until you are. No questions asked.
                   </p>
                 </div>
               </div>
